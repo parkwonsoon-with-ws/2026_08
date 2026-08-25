@@ -52,7 +52,7 @@
     display:flex;align-items:center;justify-content:center;gap:6px;
     padding-bottom:12px;
     border-bottom:3px solid var(--yellow);
-    margin-bottom:34px;
+    margin-bottom:0; /* 기존 34px 제거하고 masthead 마진으로 통일 */
   }
   .page__top-logo{
     height:30px; 
@@ -68,21 +68,20 @@
     color:var(--ink);
   }
 
-  /* ---------- 표지 제호 (가운데 정렬로 수정) ---------- */
+  /* ---------- 표지 제호 (레이아웃 복구 & 상하 중앙 배치) ---------- */
   .masthead{
     display:flex;
-    flex-direction:column; /* 세로로 배치 */
-    align-items:center;    /* 가로 중앙 정렬 */
-    justify-content:center;
-    gap:24px;              /* 제목과 로고 사이 간격 */
-    margin:10px 0 40px;    /* 위아래 여백 */
-    text-align:center;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    /* 노란선(위)과 영상(아래) 사이의 정중앙에 오도록 위아래 여백을 넉넉하고 동일하게 부여 */
+    margin:48px 0 48px; 
   }
   .masthead__title{
     display:flex;
     flex-direction:column;
-    align-items:center;    /* 텍스트들도 서로 중앙 정렬 */
-    gap:8px;
+    align-items:flex-start;
+    gap:4px;
     margin:0;
   }
   .masthead__org{
@@ -98,11 +97,17 @@
     color:var(--gold);
   }
   .masthead__bridge{
-    display:none; /* 중앙 정렬이므로 가로 연결선 숨김 */
+    flex:1;
+    align-self:flex-end;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:14px; /* 바닥선 위치 조정 */
+    min-width:24px;
   }
   .masthead__meta{
-    border-left:none; /* 중앙 정렬이므로 세로 구분선 숨김 */
-    padding-left:0;
+    border-left:1px solid var(--rule);
+    padding-left:26px;
+    padding-bottom:6px;
+    flex-shrink:0;
     display:flex;align-items:center;justify-content:center;
   }
   .masthead__logo{
@@ -279,20 +284,12 @@
     .split,.news__grid,.contact{grid-template-columns:1fr;gap:22px}
     .split .aside{padding-top:0}
     
-    /* 모바일 환경에서도 제호 가운데 정렬 유지 */
-    .masthead{
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:16px;
-      margin:16px 0 28px;
-    }
-    .masthead__title{gap:4px;flex:0 1 auto;min-width:0}
-    .masthead__org{font-size:clamp(.8rem, 3.8vw, 1.1rem);white-space:nowrap;margin:0;}
-    .masthead__name{font-size:clamp(2.2rem, 11vw, 3.5rem);white-space:nowrap;margin:0;}
+    .masthead{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:10px;margin:32px 0 32px;}
+    .masthead__title{gap:6px;flex:0 1 auto;min-width:0}
+    .masthead__org{font-size:clamp(.72rem, 3.2vw, .95rem);margin-left:0;white-space:nowrap;}
+    .masthead__name{font-size:clamp(1.85rem, min(13.2vw, calc((100vw - 142px) / 4.85)), 3.5rem);white-space:nowrap;}
     .masthead__bridge{display:none}
-    .masthead__meta{border:none;padding:0;}
-    
+    .masthead__meta{border-left:1px solid var(--rule);padding-left:14px;flex:0 0 auto;padding-bottom:2px;}
     .masthead__logo{height:81px;}
 
     .page__top-logo{height:24px;}
