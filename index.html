@@ -54,12 +54,25 @@
     border-bottom:3px solid var(--yellow);
     margin-bottom:0; /* 기존 34px 제거하고 masthead 마진으로 통일 */
   }
-  .page__top-logo{
-    height:30px; 
+  .page__body{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  /* 면 하단 로고 */
+  .page__foot{
+    margin-top:auto;              /* 남는 공간을 위로 밀어 로고를 바닥에 붙인다 */
+    padding-top:34px;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .page__foot-logo{
+    height:30px;
     width:auto;
     display:inline-block;
-    vertical-align:middle;
   }
+  /* 발행일 없이 노란 바만 두는 면(2·3면) — 1면과 같은 높이를 유지 */
+  .page__top--bare{min-height:38px}
+
   .page__issue{
     font-family:var(--sans);
     font-weight:600;
@@ -284,7 +297,7 @@
     .split,.news__grid,.contact{grid-template-columns:1fr;gap:22px}
     .split .aside{padding-top:0}
     
-    .masthead{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:10px;margin:32px 0 32px;}
+    .masthead{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:10px;margin:2px 0 24px;}
     .masthead__title{gap:6px;flex:0 1 auto;min-width:0}
     .masthead__org{font-size:clamp(.72rem, 3.2vw, .95rem);margin-left:0;white-space:nowrap;}
     .masthead__name{font-size:clamp(1.85rem, min(13.2vw, calc((100vw - 142px) / 4.85)), 3.5rem);white-space:nowrap;}
@@ -292,9 +305,17 @@
     .masthead__meta{border-left:1px solid var(--rule);padding-left:14px;flex:0 0 auto;padding-bottom:2px;}
     .masthead__logo{height:81px;}
 
-    .page__top-logo{height:24px;}
+    /* 노란 바와 제목 사이 간격: 이전 버전 값으로 복원 */
+    .page__top{margin-bottom:24px;}
+    .page__top--bare{min-height:34px}
+    .page__issue{font-size:.66rem;letter-spacing:.12em;}
+    .eyebrow{font-size:.66rem;letter-spacing:.2em;margin-bottom:10px}
+
+    .page__foot{padding-top:26px}
+    .page__foot-logo{height:24px;}
     .h-lead{font-size:clamp(1.62rem,7.4vw,2rem);line-height:1.4;margin-bottom:16px}
     .h-lead--lg{font-size:clamp(1.82rem,8.4vw,2.35rem);}
+    .h-lead::after{margin-top:14px;width:60px;height:3px}
   }
 </style>
 </head>
@@ -349,11 +370,7 @@
 
 <!-- ============ 페이지 02 : 회원 소식 ============ -->
 <article class="page">
-  <div class="page__top">
-    <!-- 2페이지 상단 로고 2개 배치 -->
-    <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-    <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-  </div>
+  <div class="page__top page__top--bare"></div>
 
   <div class="page__body">
     <span class="eyebrow">회원 소식</span>
@@ -387,17 +404,18 @@
       <p class="period">2026년 5월 13일 ~ 7월 31일</p>
       <p class="aside" style="max-width:60ch">지난 5월 13일부터 7월 31일까지 두 달 반 동안 회원확대 캠페인을 진행했습니다. 그사이 103분이 새로 재단 회원이 되어 주셨습니다. 주변에 재단을 소개해주신 회원 여러분 덕분입니다.</p>
     </section>
+
+    <!-- 2페이지 하단 로고 2개 배치 -->
+    <div class="page__foot">
+      <img src="logo.jpg" alt="도요새 로고" class="page__foot-logo">
+      <img src="logo.jpg" alt="도요새 로고" class="page__foot-logo">
+    </div>
   </div>
 </article>
 
 <!-- ============ 페이지 03 : 재단 소식 + 마감 ============ -->
 <article class="page">
-  <div class="page__top">
-    <!-- 3페이지 상단 로고 3개 배치 -->
-    <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-    <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-    <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-  </div>
+  <div class="page__top page__top--bare"></div>
 
   <div class="page__body">
     <figure class="photo rise">
@@ -440,6 +458,13 @@
         </dl>
       </div>
     </section>
+
+    <!-- 3페이지 하단 로고 3개 배치 -->
+    <div class="page__foot">
+      <img src="logo.jpg" alt="도요새 로고" class="page__foot-logo">
+      <img src="logo.jpg" alt="도요새 로고" class="page__foot-logo">
+      <img src="logo.jpg" alt="도요새 로고" class="page__foot-logo">
+    </div>
   </div>
 </article>
 
