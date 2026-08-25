@@ -68,38 +68,43 @@
     color:var(--ink);
   }
 
-  /* ---------- 표지 제호 (수정됨) ---------- */
+  /* ---------- 표지 제호 (가운데 정렬로 수정) ---------- */
   .masthead{
-    display:flex;align-items:flex-end; /* 우측 로고와 하단 선을 기준으로 정렬 */
-    justify-content:space-between;
-    gap:34px;margin:10px 0 32px; /* 상단 여백 살짝 추가 */
+    display:flex;
+    flex-direction:column; /* 세로로 배치 */
+    align-items:center;    /* 가로 중앙 정렬 */
+    justify-content:center;
+    gap:24px;              /* 제목과 로고 사이 간격 */
+    margin:10px 0 40px;    /* 위아래 여백 */
+    text-align:center;
   }
-  .masthead__title{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:0} /* 텍스트 위아래 간격 좁힘 */
+  .masthead__title{
+    display:flex;
+    flex-direction:column;
+    align-items:center;    /* 텍스트들도 서로 중앙 정렬 */
+    gap:8px;
+    margin:0;
+  }
   .masthead__org{
     font-family:var(--display);font-weight:800;
     font-size:clamp(1.2rem,3.3vw,1.78rem);
     line-height:1.2;letter-spacing:.01em;
-    /* margin-left:-.03em; 제거 (왼쪽 쏠림 방지) */
     color:var(--ink);
   }
   .masthead__name{
     font-family:var(--display);font-weight:800;
     font-size:clamp(2.6rem,7.4vw,4.25rem);
     line-height:1.04;letter-spacing:-.03em;
-    /* margin-left:-.04em; 제거 (왼쪽 쏠림 방지) */
     color:var(--gold);
   }
   .masthead__bridge{
-    flex:1;align-self:flex-end;
-    border-bottom:1px solid var(--rule);
-    margin-bottom:8px;min-width:24px;
+    display:none; /* 중앙 정렬이므로 가로 연결선 숨김 */
   }
   .masthead__meta{
-    border-left:1px solid var(--rule);
-    padding-left:26px;flex-shrink:0;
+    border-left:none; /* 중앙 정렬이므로 세로 구분선 숨김 */
+    padding-left:0;
     display:flex;align-items:center;justify-content:center;
   }
-  /* 표지 우측 글자 다 지우고 로고만 크게 (1.5배 확대: 86px -> 129px) */
   .masthead__logo{
     height:129px; 
     width:auto;
@@ -274,14 +279,20 @@
     .split,.news__grid,.contact{grid-template-columns:1fr;gap:22px}
     .split .aside{padding-top:0}
     
-    .masthead{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:10px;margin:2px 0 24px;}
-    .masthead__title{gap:6px;flex:0 1 auto;min-width:0}
-    .masthead__org{font-size:clamp(.72rem, 3.2vw, .95rem);margin-left:0;white-space:nowrap;}
-    /* 모바일에서도 음수 마진(-.03em) 제거 완료 */
-    .masthead__name{font-size:clamp(1.85rem, min(13.2vw, calc((100vw - 142px) / 4.85)), 3.5rem);white-space:nowrap;}
+    /* 모바일 환경에서도 제호 가운데 정렬 유지 */
+    .masthead{
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
+      margin:16px 0 28px;
+    }
+    .masthead__title{gap:4px;flex:0 1 auto;min-width:0}
+    .masthead__org{font-size:clamp(.8rem, 3.8vw, 1.1rem);white-space:nowrap;margin:0;}
+    .masthead__name{font-size:clamp(2.2rem, 11vw, 3.5rem);white-space:nowrap;margin:0;}
     .masthead__bridge{display:none}
-    .masthead__meta{border-left:1px solid var(--rule);padding-left:14px;flex:0 0 auto;padding-bottom:2px;}
-    /* 모바일 로고 크기 1.5배 확대 (54px -> 81px) */
+    .masthead__meta{border:none;padding:0;}
+    
     .masthead__logo{height:81px;}
 
     .page__top-logo{height:24px;}
