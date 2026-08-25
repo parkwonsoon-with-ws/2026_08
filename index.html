@@ -55,7 +55,7 @@
     margin-bottom:34px;
   }
   .page__top-logo{
-    height:22px;
+    height:30px; 
     width:auto;
     display:inline-block;
     vertical-align:middle;
@@ -70,10 +70,10 @@
 
   /* ---------- 표지 제호 ---------- */
   .masthead{
-    display:flex;align-items:flex-start;justify-content:space-between;
+    display:flex;align-items:stretch;justify-content:space-between;
     gap:34px;margin:4px 0 32px;
   }
-  .masthead__title{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:0}
+  .masthead__title{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:10px;margin:0}
   .masthead__org{
     font-family:var(--display);font-weight:800;
     font-size:clamp(1.2rem,3.3vw,1.78rem);
@@ -95,25 +95,15 @@
   }
   .masthead__meta{
     border-left:1px solid var(--rule);
-    padding-left:26px;text-align:right;flex-shrink:0;
-    display:flex;flex-direction:column;align-items:flex-end;
+    padding-left:26px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
   }
-  .masthead__num{
-    font-family:var(--sans);font-weight:600;
-    font-size:clamp(2.6rem,7vw,3.9rem);
-    line-height:.95;letter-spacing:-.045em;color:var(--ink);
-  }
+  /* 표지 우측 글자 다 지우고 로고만 크게 */
   .masthead__logo{
-    height:46px;
+    height:86px; 
     width:auto;
     display:block;
-    margin:6px 0 4px auto;
   }
-  .masthead__line{
-    font-family:var(--sans);font-size:.82rem;font-weight:400;
-    color:var(--ink-soft);margin-top:2px;letter-spacing:.01em;
-  }
-  .masthead__line strong{color:var(--ink);font-weight:600}
 
   /* ---------- 표지 영상 ---------- */
   .cover{position:relative;margin:0 0 34px;background:#000}
@@ -288,12 +278,10 @@
     .masthead__org{font-size:clamp(.72rem, 3.2vw, .95rem);margin-left:0;white-space:nowrap;}
     .masthead__name{font-size:clamp(1.85rem, min(13.2vw, calc((100vw - 142px) / 4.85)), 3.5rem);white-space:nowrap;margin-left:-.03em;}
     .masthead__bridge{display:none}
-    .masthead__meta{border-left:1px solid var(--rule);padding-left:10px;text-align:right;flex:0 0 auto;padding-bottom:2px;}
-    .masthead__num{font-size:1.36rem;line-height:1;}
-    .masthead__logo{height:34px;margin:3px 0 2px auto;}
-    .masthead__line{font-size:.62rem;margin-top:2px;}
+    .masthead__meta{border-left:1px solid var(--rule);padding-left:14px;flex:0 0 auto;padding-bottom:2px;}
+    .masthead__logo{height:54px;}
 
-    .page__top-logo{height:18px;}
+    .page__top-logo{height:24px;}
     .h-lead{font-size:clamp(1.62rem,7.4vw,2rem);line-height:1.4;margin-bottom:16px}
     .h-lead--lg{font-size:clamp(1.82rem,8.4vw,2.35rem);}
   }
@@ -315,9 +303,8 @@
       </h1>
       <span class="masthead__bridge" aria-hidden="true"></span>
       <div class="masthead__meta">
-        <div class="masthead__num">08</div>
+        <!-- 불필요한 텍스트 싹 지우고 로고만 배치했습니다 -->
         <img src="logo.jpg" alt="도요새 로고" class="masthead__logo">
-        <div class="masthead__line">vol. <strong>1</strong></div>
       </div>
     </div>
 
@@ -353,8 +340,8 @@
 <!-- ============ 페이지 02 : 회원 소식 ============ -->
 <article class="page">
   <div class="page__top">
+    <!-- 2페이지 상단 글씨 없이 로고만 남김 -->
     <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-    <span class="page__issue">도요새편지 · (사)박원순혁신재단</span>
   </div>
 
   <div class="page__body">
@@ -395,8 +382,8 @@
 <!-- ============ 페이지 03 : 재단 소식 + 마감 ============ -->
 <article class="page">
   <div class="page__top">
+    <!-- 3페이지 상단 글씨 없이 로고만 남김 -->
     <img src="logo.jpg" alt="도요새 로고" class="page__top-logo">
-    <span class="page__issue">도요새편지 · (사)박원순혁신재단</span>
   </div>
 
   <div class="page__body">
