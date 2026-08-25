@@ -275,11 +275,24 @@
     background:linear-gradient(to top, rgba(249,194,43,.62) 42%, transparent 42%);
     font-weight:700;padding:0 .08em;border-radius:2px;
   }
+  /* 손으로 그린 듯한 동그라미 강조 */
+  .circle{
+    display:inline-block;
+    padding:.14em .38em .18em;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 92' preserveAspectRatio='none'><path d='M143 9 C 100 1, 46 6, 24 27 C 5 46, 24 74, 70 83 C 118 91, 172 79, 185 57 C 194 41, 180 23, 152 14' fill='none' stroke='%23dda600' stroke-width='4' stroke-linecap='round'/></svg>");
+  }
+
   .ul{
     text-decoration:underline;text-decoration-color:var(--gold);
     text-decoration-thickness:2px;text-underline-offset:4px;
     font-weight:600;color:var(--ink);
   }
+  /* 모바일 전용 줄바꿈 */
+  .br-m{display:none}
+
   .linkbtn{
     display:inline-flex;align-items:center;gap:6px;
     font-family:var(--sans);font-weight:600;font-size:.82rem;
@@ -308,6 +321,12 @@
     /* 노란 바와 제목 사이 간격: 이전 버전 값으로 복원 */
     /* PC 전용 줄바꿈은 모바일에서 해제 */
     .br-pc{display:none}
+
+    /* 일시: 날짜와 시간을 두 줄로, 식사 안내는 괄호로 붙인다 */
+    .br-m{display:inline}
+    .facts__v small.meal{display:inline;margin-top:0;margin-left:.35em}
+    .facts__v small.meal::before{content:"("}
+    .facts__v small.meal::after{content:")"}
 
     .page__top{margin-bottom:24px;}
     .page__top--bare{min-height:34px}
@@ -422,7 +441,7 @@
         <span class="eyebrow">재단 소식</span>
         <h2 class="h-lead">'2026 회원의날' 개최</h2>
         <div class="facts">
-          <div class="facts__row"><div class="facts__k">일시</div><div class="facts__v"><span class="hl">2026년 11월 14일(토) 오후 3시 ~ 6시</span><small>식사 시간 포함</small></div></div>
+          <div class="facts__row"><div class="facts__k">일시</div><div class="facts__v"><span class="hl">2026년 11월 14일(토) <br class="br-m">오후 3시 ~ 6시</span><small class="meal">식사 시간 포함</small></div></div>
           <div class="facts__row"><div class="facts__k">장소</div><div class="facts__v">푸르메재단 강당<small>서울시 종로구 자하문로 89, 4층</small></div></div>
           <div class="facts__row"><div class="facts__k">내용</div><div class="facts__v">재단 설립 및 운영 경과 보고<small>부대행사 예정</small></div></div>
         </div>
@@ -449,7 +468,7 @@
 
   <div class="page__body">
     <span class="eyebrow">재단 소식</span>
-    <h2 class="h-lead">회원 <span class="hl">103명</span>이 늘었습니다</h2>
+    <h2 class="h-lead">회원 <span class="circle">103명</span>이 늘었습니다</h2>
     <p class="period">2026년 5월 13일 ~ 7월 31일</p>
     <p class="aside" style="max-width:80ch">지난 캠페인 기간 동안 103명이 새로 재단 회원이 되어 주셨습니다. <br class="br-pc">주변에 재단을 소개해 주신 회원 여러분 덕분입니다.</p>
 
