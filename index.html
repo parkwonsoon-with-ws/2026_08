@@ -517,10 +517,9 @@
 
   if (reduce){ paused(true); } else { tryPlay(); }
 
-  /* 재생이 끝나면 첫 화면으로 되돌리고 멈춘다 */
+  /* 재생이 끝나면 마지막 화면에서 멈춘다 */
   video.addEventListener('ended', function(){
     autoPaused = true;
-    rewind();
     paused(false);
   });
 
@@ -537,7 +536,6 @@
             seen = true;
             autoPaused = true;
             video.pause();
-            rewind();
           }
         });
       }, {threshold:.35});
