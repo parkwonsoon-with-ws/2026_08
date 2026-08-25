@@ -49,10 +49,16 @@
     min-height:auto;
   }
   .page__top{
-    display:flex;align-items:baseline;justify-content:center;
+    display:flex;align-items:center;justify-content:center;gap:6px;
     padding-bottom:12px;
     border-bottom:3px solid var(--yellow);
     margin-bottom:34px;
+  }
+  .page__top-logo{
+    height:22px;
+    width:auto;
+    display:inline-block;
+    vertical-align:middle;
   }
   .page__issue{
     font-family:var(--sans);
@@ -90,15 +96,22 @@
   .masthead__meta{
     border-left:1px solid var(--rule);
     padding-left:26px;text-align:right;flex-shrink:0;
+    display:flex;flex-direction:column;align-items:flex-end;
   }
   .masthead__num{
     font-family:var(--sans);font-weight:600;
     font-size:clamp(2.6rem,7vw,3.9rem);
     line-height:.95;letter-spacing:-.045em;color:var(--ink);
   }
+  .masthead__logo{
+    height:46px;
+    width:auto;
+    display:block;
+    margin:6px 0 4px auto;
+  }
   .masthead__line{
     font-family:var(--sans);font-size:.82rem;font-weight:400;
-    color:var(--ink-soft);margin-top:7px;letter-spacing:.01em;
+    color:var(--ink-soft);margin-top:2px;letter-spacing:.01em;
   }
   .masthead__line strong{color:var(--ink);font-weight:600}
 
@@ -289,7 +302,6 @@
   .js-anim .rise{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
   .js-anim .rise.in{opacity:1;transform:none}
 
-
   /* ---------- 강조(형광펜) ---------- */
   .hl{
     background:linear-gradient(to top, rgba(249,194,43,.62) 42%, transparent 42%);
@@ -354,7 +366,6 @@
       white-space:nowrap;
     }
     .masthead__name{
-      /* 13.2vw를 기본으로 하되, 오른쪽 발행정보 자리를 침범하지 않도록 자동 상한 */
       font-size:clamp(1.85rem, min(13.2vw, calc((100vw - 142px) / 4.85)), 3.5rem);
       line-height:1;letter-spacing:-.035em;
       white-space:nowrap;margin-left:-.03em;
@@ -366,9 +377,11 @@
       flex:0 0 auto;padding-bottom:2px;
     }
     .masthead__num{font-size:1.36rem;line-height:1;letter-spacing:-.02em}
+    .masthead__logo{height:34px;margin:3px 0 2px auto;}
     .masthead__line{font-size:.62rem;margin-top:2px;white-space:nowrap}
 
     .page__issue{font-size:.66rem;letter-spacing:.12em}
+    .page__top-logo{height:18px;}
     .page__top{margin-bottom:24px}
     .prose p,.toc__txt{font-size:1rem}
     .eyebrow{font-size:.66rem;letter-spacing:.2em;margin-bottom:10px}
@@ -403,7 +416,6 @@
     .rules li{font-size:.84rem}
   }
 
-  /* 아주 좁은 화면(320px대)에서도 제호가 잘리지 않도록 */
   @media (max-width:340px){
     .masthead__line{font-size:.54rem}
   }
@@ -418,12 +430,12 @@
     .cover__play{display:none !important}
     .rise{opacity:1;transform:none}
     .give__btn--alt{
-    background:transparent;color:var(--ink);
-    border:1px solid var(--ink);border-bottom-width:1px;
-    font-weight:500;padding:16px 24px;font-size:.94rem;
-  }
-  .give__btn--alt:hover{background:var(--wash);border-color:var(--gold)}
-  .give__url{display:block}
+      background:transparent;color:var(--ink);
+      border:1px solid var(--ink);border-bottom-width:1px;
+      font-weight:500;padding:16px 24px;font-size:.94rem;
+    }
+    .give__btn--alt:hover{background:var(--wash);border-color:var(--gold)}
+    .give__url{display:block}
     .give__btn{border:1px solid var(--ink)}
   }
 </style>
@@ -445,7 +457,7 @@
       <span class="masthead__bridge" aria-hidden="true"></span>
       <div class="masthead__meta">
         <div class="masthead__num">08</div>
-        <div class="masthead__line">September 2026</div>
+        <img src="logo.png" alt="도요새 로고" class="masthead__logo">
         <div class="masthead__line">vol. <strong>1</strong></div>
       </div>
     </div>
@@ -483,6 +495,8 @@
 <!-- ============ 페이지 02 : 회원 소식 ============ -->
 <article class="page">
   <div class="page__top">
+    <img src="logo.png" alt="도요새 로고" class="page__top-logo">
+    <span class="page__issue">도요새편지 · (사)박원순혁신재단</span>
   </div>
 
   <div class="page__body">
@@ -502,27 +516,28 @@
         </div>
 
         <div>
-  <div class="facts">
-    <div class="facts__row">
-      <div class="facts__k">모집 기간</div>
-      <div class="facts__v">2026년 8월 26일(수) ~ 9월 8일(화)</div>
-    </div>
-    <div class="facts__row">
-      <div class="facts__k">모집 인원</div>
-      <div class="facts__v"><span class="hl">10명 (선착순)</span></div>
-    </div>
-    <div class="facts__row">
-      <div class="facts__k">활동 기간</div>
-      <div class="facts__v">2026년 9월 ~ 2027년 2월</div>
-    </div>
-    <div class="facts__row">
-      <div class="facts__k">신청 방법</div>
-      <div class="facts__v">
-        <a class="linkbtn" href="https://naver.me/GmpmaRAt" target="_blank" rel="noopener">소모임 신청하기 <i>&rarr;</i></a>
+          <div class="facts">
+            <div class="facts__row">
+              <div class="facts__k">모집 기간</div>
+              <div class="facts__v">2026년 8월 26일(수) ~ 9월 8일(화)</div>
+            </div>
+            <div class="facts__row">
+              <div class="facts__k">모집 인원</div>
+              <div class="facts__v"><span class="hl">10명 (선착순)</span></div>
+            </div>
+            <div class="facts__row">
+              <div class="facts__k">활동 기간</div>
+              <div class="facts__v">2026년 9월 ~ 2027년 2월</div>
+            </div>
+            <div class="facts__row">
+              <div class="facts__k">신청 방법</div>
+              <div class="facts__v">
+                <a class="linkbtn" href="https://naver.me/GmpmaRAt" target="_blank" rel="noopener">소모임 신청하기 <i>&rarr;</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </section>
 
     <section class="news rise">
@@ -534,9 +549,13 @@
 
   </div>
 
-</article><!-- ============ 페이지 03 : 재단 소식 + 마감 ============ -->
+</article>
+
+<!-- ============ 페이지 03 : 재단 소식 + 마감 ============ -->
 <article class="page">
   <div class="page__top">
+    <img src="logo.png" alt="도요새 로고" class="page__top-logo">
+    <span class="page__issue">도요새편지 · (사)박원순혁신재단</span>
   </div>
 
   <div class="page__body">
@@ -574,12 +593,11 @@
     <section class="news rise" style="margin-top:34px">
       <div class="callout">
         <p>회원 여러분의 참여가 박원순의 가치를 확산하는 일에 밑바탕이 됩니다.<br>주소나 연락처가 바뀌셨다면 사무처로 알려주세요. 도요새편지가 제때 도착할 수 있도록 챙기겠습니다.</p>
-  </div>
       </div>
 
       <div class="give">
         <a class="give__btn" href="https://online.mrm.or.kr/IvNbY4b" target="_blank" rel="noopener">
-          박원순혁신재단 가입하기 <i>→</i>
+          박원순혁신재단 가입하기 <i>&rarr;</i>
         </a>
       </div>
 
@@ -599,8 +617,6 @@
   </div>
 
 </article>
-
-
 
 <script>
 (function(){
