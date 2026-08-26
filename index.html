@@ -246,6 +246,11 @@
     display:block;font-family:var(--sans);font-size:.84rem;
     color:var(--ink-soft);margin-top:4px;letter-spacing:.01em;
   }
+  .callout__contact a{
+    color:var(--ink-soft);text-decoration:none;
+    border-bottom:1px solid var(--gold);
+  }
+  .callout__contact a:hover{color:var(--ink);border-bottom-color:var(--ink)}
   .rules{list-style:none;margin:14px 0 0;padding:0}
   .rules li{
     font-size:.86rem;color:var(--ink-soft);line-height:1.75;
@@ -332,6 +337,13 @@
   /* PC에서는 4면 캠페인 문단만 오른쪽 끝을 맞춘다(양쪽 정렬) */
   @media (min-width:761px){
     .page:last-of-type .prose p{text-align:justify;text-align-last:left}
+
+    /* PC에는 문자·메일 앱이 없는 경우가 많으므로 홈페이지 링크만 남긴다 */
+    .footer a[href^="sms:"], .footer a[href^="mailto:"],
+    .callout__contact a{
+      pointer-events:none;cursor:default;
+      color:inherit;border-bottom:0;
+    }
   }
 
   /* ---------- 반응형 ---------- */
@@ -502,7 +514,7 @@
         <ul class="callout__list">
           <li>회원 여러분의 참여가 박원순의 가치를 널리 확산하는 토대가 됩니다.</li>
           <li>연락처가 바뀌었다면 사무처로 알려주세요.
-            <span class="callout__contact">(문자메시지 010-7397-0109 · 이메일 sojang@parkwonsoon.org)</span>
+            <span class="callout__contact">(문자메시지 <a href="sms:+821073970109">010-7397-0109</a> · 이메일 <a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a>)</span>
           </li>
         </ul>
       </div>
@@ -512,7 +524,7 @@
       <div class="footer">
         <p class="footer__org">(사)박원순혁신재단</p>
         <p>서울 종로구 새문안로 69 구세군회관 504호</p>
-        <p><a href="https://www.parkwonsoon.org" target="_blank" rel="noopener">www.parkwonsoon.org</a> / 010-7397-0109 / <a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a></p>
+        <p><a href="https://www.parkwonsoon.org" target="_blank" rel="noopener">www.parkwonsoon.org</a> / <a href="sms:+821073970109">010-7397-0109</a> / <a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a></p>
         <p>후원계좌: 하나은행 203-910058-08904 (사단법인 박원순혁신재단)</p>
       </div>
     </section>
