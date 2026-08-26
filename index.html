@@ -329,9 +329,9 @@
   .linkbtn:hover{background:#fcd260;transform:translateY(-1px)}
   .linkbtn:hover i{transform:translateX(3px)}
 
-  /* PC에서는 문단 오른쪽 끝을 맞춘다(양쪽 정렬) */
+  /* PC에서는 4면 캠페인 문단만 오른쪽 끝을 맞춘다(양쪽 정렬) */
   @media (min-width:761px){
-    .prose p{text-align:justify;text-align-last:left}
+    .page:last-of-type .prose p{text-align:justify;text-align-last:left}
   }
 
   /* ---------- 반응형 ---------- */
