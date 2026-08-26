@@ -74,17 +74,18 @@
   /* 발행일 없이 노란 바만 두는 면(2·3면) — 1면과 같은 높이를 유지 */
   .page__top--bare{min-height:38px}
 
+  /* 가운데: 레터 고유번호 */
   .page__no{
-    position:absolute;right:0;bottom:12px;
-    font-family:var(--sans);font-weight:600;font-size:.68rem;
-    letter-spacing:.14em;color:var(--ink-faint);
+    font-family:var(--sans);font-weight:600;
+    font-size:.82rem;letter-spacing:.16em;
+    color:var(--gold);
   }
+  /* 오른쪽: 발행일 */
   .page__issue{
-    font-family:var(--sans);
-    font-weight:600;
-    font-size:.76rem;
-    letter-spacing:.2em;
-    color:var(--ink);
+    position:absolute;right:0;bottom:12px;
+    font-family:var(--sans);font-weight:500;
+    font-size:.68rem;letter-spacing:.1em;
+    color:var(--ink-faint);
   }
 
   /* ---------- 표지 제호 (레이아웃 복구 & 상하 중앙 배치) ---------- */
@@ -234,7 +235,7 @@
   .callout__list{list-style:none;margin:0;padding:0}
   .callout__list li{
     position:relative;padding-left:20px;
-    font-size:.9rem;line-height:1.9;color:var(--ink);
+    font-size:.95rem;line-height:1.9;color:var(--ink);
   }
   .callout__list li + li{margin-top:10px}
   .callout__list li::before{
@@ -242,7 +243,7 @@
     width:7px;height:7px;border:2px solid var(--gold);border-radius:50%;
   }
   .callout__contact{
-    display:block;font-family:var(--sans);font-size:.8rem;
+    display:block;font-family:var(--sans);font-size:.84rem;
     color:var(--ink-soft);margin-top:4px;letter-spacing:.01em;
   }
   .rules{list-style:none;margin:14px 0 0;padding:0}
@@ -277,19 +278,15 @@
   .give__btn:hover i{transform:translateX(4px)}
 
   /* 맺음 안내 */
-  .contact{
+  .footer{
     margin-top:30px;border-top:2px solid var(--ink);padding-top:20px;
-    display:grid;grid-template-columns:1fr 1fr;gap:26px;
+    text-align:center;font-family:var(--sans);
+    font-size:.84rem;line-height:2;color:var(--ink-soft);
   }
-  .contact dl{margin:0}
-  .contact dt{
-    font-family:var(--sans);font-size:.66rem;font-weight:600;
-    letter-spacing:.16em;color:var(--ink-faint);margin-bottom:5px;
-  }
-  .contact dd{margin:0 0 14px;font-size:.9rem;line-height:1.75}
-  .contact dd span{color:var(--ink-soft);font-size:.84rem}
-  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--yellow)}
-  .contact a:hover{border-bottom-color:var(--ink)}
+  .footer p{margin:0}
+  .footer__org{font-weight:600;color:var(--ink)}
+  .footer a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--yellow)}
+  .footer a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 
   /* ---------- 등장 효과 ---------- */
   .rise{opacity:1;transform:none}
@@ -316,8 +313,11 @@
     text-decoration-thickness:2px;text-underline-offset:4px;
     font-weight:600;color:var(--ink);
   }
-  /* 모바일 전용 줄바꿈 */
-  .br-m{display:none}
+  /* 일시: 날짜와 시간을 두 줄로 (PC·모바일 동일) */
+  .br-m{display:inline}
+  .facts__v small.meal{display:inline;margin-top:0;margin-left:.35em}
+  .facts__v small.meal::before{content:"("}
+  .facts__v small.meal::after{content:")"}
 
   .linkbtn{
     display:inline-flex;align-items:center;gap:6px;
@@ -338,7 +338,7 @@
   @media (max-width:760px){
     body{padding:0 0 28px;line-height:1.82}
     .page{padding:24px 18px 30px;margin-bottom:12px;box-shadow:0 1px 0 rgba(0,0,0,.06);}
-    .split,.news__grid,.contact{grid-template-columns:1fr;gap:22px}
+    .split,.news__grid{grid-template-columns:1fr;gap:22px}
     .split .aside{padding-top:0}
     
     .masthead{flex-direction:row;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 24px;}
@@ -349,30 +349,17 @@
     .masthead__meta{border-left:1px solid var(--rule);padding-left:14px;flex:0 0 auto;padding-bottom:2px;}
     .masthead__logo{height:81px;}
 
-    /* 노란 바와 제목 사이 간격: 이전 버전 값으로 복원 */
-    /* PC 전용 줄바꿈은 모바일에서 해제 */
-    .br-pc{display:none}
-
-    /* 일시: 날짜와 시간을 두 줄로, 식사 안내는 괄호로 붙인다 */
-    .br-m{display:inline}
-    .facts__v small.meal{display:inline;margin-top:0;margin-left:.35em}
-    .facts__v small.meal::before{content:"("}
-    .facts__v small.meal::after{content:")"}
-
     .page__top{margin-bottom:24px;}
     .page__top--bare{min-height:34px}
-    .page__issue{font-size:.66rem;letter-spacing:.12em;}
-    .page__no{font-size:.6rem;letter-spacing:.1em;bottom:12px}
+    .page__no{font-size:.72rem;letter-spacing:.12em;}
+    .page__issue{font-size:.6rem;letter-spacing:.08em;bottom:12px}
     .lead-list li{font-size:.98rem;padding-left:26px}
-    .callout__list li{font-size:.88rem}
-    .callout__contact{font-size:.76rem}
+    .callout__list li{font-size:.93rem}
+    .callout__contact{font-size:.8rem}
     .eyebrow{font-size:.66rem;letter-spacing:.2em;margin-bottom:10px}
 
-    /* 마감 연락처: 정보 밀도를 높여 마지막 면 길이를 다른 면과 맞춘다 */
-    .contact{grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;padding-top:14px}
-    .contact dt{font-size:.6rem;letter-spacing:.12em;margin-bottom:3px}
-    .contact dd{font-size:.78rem;line-height:1.7;margin-bottom:9px}
-    .contact dd span{font-size:.72rem}
+    /* 마감 연락처 */
+    .footer{margin-top:22px;padding-top:16px;font-size:.78rem;line-height:1.95}
 
     .page__foot{padding-top:26px}
     .page__foot-logo{height:18px;}
@@ -386,8 +373,8 @@
 <!-- ============ 페이지 01 : 표지 ============ -->
 <article class="page">
   <div class="page__top">
-    <span class="page__issue">2026년 8월 26일(수)</span>
     <span class="page__no">&lt;도요새편지 01&gt;</span>
+    <span class="page__issue">2026년 8월 26일(수)</span>
   </div>
 
   <div class="page__body">
@@ -486,7 +473,7 @@
       </div>
       <div class="aside">
         <p>'회원의날'은 재단이 올해 어떤 일을 했고, 앞으로 무엇을 할지 회원 여러분께 보고드리고 의견을 듣는 자리입니다. 설립 이후의 운영 상황과 함께 하반기에 시작한 사업들을 공유합니다.</p>
-        <p><span class="ul">참가 신청 방법은 10월에 다시 안내하겠습니다.</span></p>
+        <p><span class="ul">참가 신청 등 자세한 것은 10월에 다시 안내하겠습니다.</span></p>
       </div>
     </div>
 
@@ -505,34 +492,29 @@
   <div class="page__top page__top--bare"></div>
 
   <div class="page__body">
-    <h2 class="h-lead">회원 <span class="circle">103명</span>이 늘었습니다</h2>
+    <h2 class="h-lead">회원이 <span class="circle">103분</span> 늘었습니다</h2>
     <div class="prose">
-      <p style="max-width:80ch">3월, 박원순혁신재단이 비영리법인으로 정식 등록된 후 2026년 5월 13일부터 7월 31일까지 회원확대 캠페인을 진행했습니다. 많은 분들께서 도와주신 덕분에 이 기간에만 103명께서 신규 가입하셨습니다. 모두 회원 여러분 덕분입니다. 고맙습니다.</p>
+      <p style="max-width:80ch">올해 3월, 박원순혁신재단이 비영리법인으로 정식 등록된 후 2026년 5월 13일부터 7월 31일까지 회원확대 캠페인을 진행했습니다. 많은 분들께서 도와주신 덕분에 이 기간에만 103분께서 신규 가입하셨습니다. 모두 회원 여러분 덕분입니다. 고맙습니다.</p>
     </div>
 
     <section class="news rise" style="margin-top:34px">
       <div class="callout">
         <ul class="callout__list">
           <li>회원 여러분의 참여가 박원순의 가치를 널리 확산하는 토대가 됩니다.</li>
-          <li>연락처가 바뀌셨다면 사무처로 알려주세요.
-            <span class="callout__contact">사무처 010-7397-0109</span>
+          <li>연락처가 바뀌었다면 사무처로 알려주세요.
+            <span class="callout__contact">(문자메시지 010-7397-0109 · 이메일 sojang@parkwonsoon.org)</span>
           </li>
         </ul>
       </div>
       <div class="give">
         <a class="give__btn" href="https://online.mrm.or.kr/IvNbY4b" target="_blank" rel="noopener">박원순혁신재단 가입하기 <i>&rarr;</i></a>
       </div>
-      <div class="contact">
-        <dl>
-          <dt>사무처</dt>
-          <dd>(사)박원순혁신재단<br>서울 종로구 새문안로 69<br>구세군회관 504호</dd>
-          <dt>문의</dt>
-          <dd><a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a></dd>
-        </dl>
-        <dl>
-          <dt>후원 계좌</dt>
-          <dd>하나은행 203-910058-08904<br><span>예금주 : 사단법인 박원순혁신재단</span></dd>
-        </dl>
+      <div class="footer">
+        <p class="footer__org">(사)박원순혁신재단</p>
+        <p>서울 종로구 새문안로 69 구세군회관 504호</p>
+        <p>홈페이지: <a href="https://www.parkwonsoon.org" target="_blank" rel="noopener">www.parkwonsoon.org</a></p>
+        <p>문의: <a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a> · 010-7397-0109</p>
+        <p>후원계좌: 하나은행 203-910058-08904 (사단법인 박원순혁신재단)</p>
       </div>
     </section>
 
