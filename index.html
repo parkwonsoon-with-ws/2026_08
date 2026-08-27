@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
 <title>도요새편지 2026년 8월 26일 · (사)박원순혁신재단</title>
+
+<!-- 문자·카카오톡 등에서 링크를 공유할 때 보이는 미리보기 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="박원순혁신재단">
+<meta property="og:title" content="도요새편지 &lt;01&gt; · 2026년 8월 26일">
+<meta property="og:description" content="박원순혁신재단 회원 여러분께 보내드리는 첫 소식지입니다. 책읽기 소모임 모집, 2026 회원의날 안내, 회원확대 캠페인 결과를 전합니다.">
+<meta property="og:url" content="https://parkwonsoon-with-ws.github.io/2026_08/">
+<meta property="og:image" content="https://parkwonsoon-with-ws.github.io/2026_08/poster.jpg">
+<meta property="og:image:width" content="1104">
+<meta property="og:image:height" content="832">
+<meta property="og:image:alt" content="나뭇잎 모자를 쓰고 활짝 웃는 박원순">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
@@ -292,6 +306,17 @@
   .footer__org{font-weight:600;color:var(--ink)}
   .footer a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--yellow)}
   .footer a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  /* 계좌번호: 눌러서 복사 */
+  .copybtn{
+    font:inherit;color:inherit;background:none;border:0;padding:0;
+    border-bottom:1px solid var(--yellow);cursor:pointer;
+  }
+  .copybtn:hover{color:var(--ink);border-bottom-color:var(--ink)}
+  .copybtn.is-copied{border-bottom-color:var(--gold);color:var(--ink)}
+  .copybtn.is-copied::after{
+    content:"복사됨";margin-left:6px;
+    font-size:.72rem;color:var(--gold);border-bottom:0;
+  }
 
   /* ---------- 등장 효과 ---------- */
   .rise{opacity:1;transform:none}
@@ -525,7 +550,7 @@
         <p class="footer__org">(사)박원순혁신재단</p>
         <p>서울 종로구 새문안로 69 구세군회관 504호</p>
         <p><a href="https://www.parkwonsoon.org" target="_blank" rel="noopener">www.parkwonsoon.org</a> / <a href="sms:+821073970109">010-7397-0109</a> / <a href="mailto:sojang@parkwonsoon.org">sojang@parkwonsoon.org</a></p>
-        <p>후원계좌: 하나은행 203-910058-08904 (사단법인 박원순혁신재단)</p>
+        <p>후원계좌: <button type="button" class="copybtn" data-copy="203-910058-08904">하나은행 203-910058-08904</button> (사단법인 박원순혁신재단)</p>
       </div>
     </section>
 
@@ -562,6 +587,29 @@
     setTimeout(revealAll, 2000);
   } else {
     revealAll();
+  }
+
+  /* 계좌번호 복사 */
+  var copyBtn = document.querySelector('.copybtn');
+  if (copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var text = copyBtn.getAttribute('data-copy');
+      function done(){
+        copyBtn.classList.add('is-copied');
+        setTimeout(function(){ copyBtn.classList.remove('is-copied'); }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.left='-9999px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
   }
 
   var wrap = document.getElementById('cover');
